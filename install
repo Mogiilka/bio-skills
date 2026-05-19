@@ -1,0 +1,54 @@
+#!/bin/sh
+# bio-skills installer
+# Symlinks each skill into ~/.claude/skills/ so Claude Code discovers them as
+# slash commands, then registers a SessionStart hook that flags new releases.
+
+set -e
+
+BUNDLE_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$HOME/.claude/skills"
+
+SKILLS="foundation campaign positioning-tagline narrative objection-playbook one-pager sales-deck validation-prep validation-debrief update-bio-skills"
+
+command -v python3 >/dev/null 2>&1 || {
+  echo "✗ python3 not found. bio-skills install needs python3 to register the update notifier."
+  echo "  macOS: 'xcode-select --install' or 'brew install python'"
+  echo "  Linux: 'apt install python3' (or your distro's equivalent)"
+  exit 1
+}
+
+mkdir -p "$SKILLS_DIR"
+
+# Refuse to overwrite real directories or foreign symlinks under our skill names.
+collisions=""
+for skill in $SKILLS; do
+  target="$SKILLS_DIR/$skill"
+  if [ -L "$target" ]; then
+    link_dest=$(readlink "$target")
+    case "$link_dest" in
+      "$BUNDLE_DIR"/*) : ;;  # already ours, will be refreshed
+      *) collisions="$collisions $skill" ;;
+    esac
+  elif [ -e "$target" ]; then
+    collisions="$collisions $skill"
+  fi
+done
+
+if [ -n "$collisions" ]; then
+  echo "✗ install aborted. These skill names are already taken in $SKILLS_DIR:"
+  for skill in $collisions; do
+    echo "    $skill"
+  done
+  echo ""
+  echo "Move or remove them, then re-run ./install."
+  exit 1
+fi
+
+for skill in $SKILLS; do
+  ln -sfn "$BUNDLE_DIR/$skill" "$SKILLS_DIR/$skill"
+done
+
+python3 "$BUNDLE_DIR/scripts/register-hook.py"
+
+echo "✓ installed 9 bio-skills + auto-updater"
+echo "  Restart Claude Code (or start a new chat), then type /foundation to start."

@@ -1,0 +1,30 @@
+#!/bin/sh
+# bio-skills uninstaller
+# Removes the skill symlinks and the SessionStart hook. Leaves the bundle dir intact.
+
+set -e
+
+BUNDLE_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$HOME/.claude/skills"
+
+SKILLS="foundation campaign positioning-tagline narrative objection-playbook one-pager sales-deck validation-prep validation-debrief update-bio-skills"
+
+removed=0
+for skill in $SKILLS; do
+  target="$SKILLS_DIR/$skill"
+  [ -L "$target" ] || continue
+  link_dest=$(readlink "$target")
+  case "$link_dest" in
+    "$BUNDLE_DIR"/*)
+      rm "$target"
+      removed=$((removed + 1))
+      ;;
+  esac
+done
+
+if command -v python3 >/dev/null 2>&1; then
+  python3 "$BUNDLE_DIR/scripts/unregister-hook.py" || true
+fi
+
+echo "✓ removed $removed bio-skills symlinks + auto-updater hook"
+echo "  Bundle at $BUNDLE_DIR is untouched. 'rm -rf' it if you want it fully gone."
