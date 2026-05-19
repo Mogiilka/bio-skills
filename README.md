@@ -1,21 +1,54 @@
 # bio-skills
 
 9 skills to draft your sales materials before BIO, then sharpen them
-with what you hear there. Built for scientist-founders. Free.
+with what you hear there. Plus an auto-updater that flags new versions.
+Built for scientist-founders. Free.
 
 ## What's inside
 
-| Skill | What it does |
-|---|---|
-| `/foundation` | Captures product, buyers, evidence. Reusable across campaigns. |
-| `/campaign` | Sets up materials for a specific event. |
-| `/positioning-tagline` | Extracts your tagline from real buyer language. |
-| `/narrative` | 30-sec, 2-min, 5-min versions of your pitch. |
-| `/objection-playbook` | Predicts likely objections. |
-| `/one-pager` | Printable leave-behind for one buyer profile. |
-| `/sales-deck` | 15-20 slide outline for booth, investor, or customer call. |
-| `/validation-prep` | Question sheet for buyer conversations. Built on Mom Test. |
-| `/validation-debrief` | After the conference: extract quotes, detect patterns. |
+### `/foundation`
+Captures your product, buyers, what makes you different, your evidence.
+Shapes it into a structured file that every other skill reads from.
+Reusable across campaigns.
+
+### `/campaign`
+Sets up for a specific event like BIO, JPM, or investor week. Pulls in
+what's happening there and adapts your intro and pitch deck for that
+context.
+
+### `/positioning-tagline`
+Extracts your tagline from real buyer language. Marks it as a guess if
+you haven't had buyer conversations yet. Updates as you collect more
+language.
+
+### `/narrative`
+Three versions of your pitch for every buyer profile: thirty seconds,
+two minutes, and five minutes. For different occasions and levels of
+attention.
+
+### `/objection-playbook`
+Predicts the objections you're most likely to hear from this buyer.
+Drafts a response for each one so you're not caught off guard at the
+booth.
+
+### `/one-pager`
+A printable, one-page handout for every buyer profile. Hand it out at
+the booth or give it to the person who wants to think about it later.
+
+### `/sales-deck`
+A 15 to 20 slide outline for every buyer profile and one setting:
+booth, investor meeting, or customer call. Raw copy to paste into any
+deck tool.
+
+### `/validation-prep`
+A question sheet for buyer conversations. Built on the Mom Test to get
+past polite feedback. Points your attention to the signals worth
+following up on.
+
+### `/validation-debrief`
+After the conference, pulls exact buyer quotes and finds patterns
+across multiple conversations. Routes the findings back into your
+`/foundation` file for the next round.
 
 All skills share a single `CONVENTIONS.md` that translates internal terms
 to plain language before any output reaches a buyer.
@@ -39,7 +72,7 @@ Two ways to install, depending on your tool:
 
 Skills become native slash commands: `/foundation`, `/campaign`, and so on.
 The install script symlinks each skill into `~/.claude/skills/` and registers
-a once-per-day update check that flags new releases inside Claude Code.
+a per-session update check that flags new releases inside Claude Code.
 
 ### Prerequisites
 
@@ -63,7 +96,7 @@ What it does:
 2. Symlinks each of the 9 skills into `~/.claude/skills/` so Claude Code
    discovers them as slash commands
 3. Registers a SessionStart hook in `~/.claude/settings.json` that checks
-   GitHub once per day for a new version (silent unless there's news)
+   GitHub once per session for a new version (silent unless there's news)
 
 If a skill name in `~/.claude/skills/` already collides with an existing
 skill on your machine, `./install` refuses to overwrite and tells you which
@@ -114,12 +147,21 @@ other CLIs need their own discovery convention.
 For Claude Desktop's Chat tab, Claude.ai web, ChatGPT, or any chat-based
 AI tool. No install required.
 
+Skills go inside one specific Project, not to Claude or ChatGPT globally.
+Claude.ai and ChatGPT don't have global custom skills — those only exist
+in Claude Code. A Project is a scoped container for a chat thread (or a
+set of threads). Skills uploaded to a Project are only available when
+you're inside that Project.
+
 1. Download the zip:
-   [bio-skills.zip](https://github.com/norml-studio/bio-skills/archive/refs/heads/main.zip)
+   [bio-skills.zip](https://github.com/Mogiilka/bio-skills/archive/refs/heads/main.zip)
 2. Unzip it
 3. Open Claude.ai or chatgpt.com → create a new Project
-4. Upload the `.claude/skills/` folder from inside the unzip to the
-   Project
+4. Inside the unzipped folder, upload these 9 skill folders to the
+   Project: `foundation/`, `campaign/`, `positioning-tagline/`,
+   `narrative/`, `objection-playbook/`, `one-pager/`, `sales-deck/`,
+   `validation-prep/`, `validation-debrief/`. Also upload
+   `CONVENTIONS.md` from the root.
 5. In a new conversation, type:
 
    > Follow the instructions in `foundation/SKILL.md` to start.
