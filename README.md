@@ -6,49 +6,17 @@ Built for scientist-founders. Free.
 
 ## What's inside
 
-### `/foundation`
-Captures your product, buyers, what makes you different, your evidence.
-Shapes it into a structured file that every other skill reads from.
-Reusable across campaigns.
-
-### `/campaign`
-Sets up for a specific event like BIO, JPM, or investor week. Pulls in
-what's happening there and adapts your intro and pitch deck for that
-context.
-
-### `/positioning-tagline`
-Extracts your tagline from real buyer language. Marks it as a guess if
-you haven't had buyer conversations yet. Updates as you collect more
-language.
-
-### `/narrative`
-Three versions of your pitch for every buyer profile: thirty seconds,
-two minutes, and five minutes. For different occasions and levels of
-attention.
-
-### `/objection-playbook`
-Predicts the objections you're most likely to hear from this buyer.
-Drafts a response for each one so you're not caught off guard at the
-booth.
-
-### `/one-pager`
-A printable, one-page handout for every buyer profile. Hand it out at
-the booth or give it to the person who wants to think about it later.
-
-### `/sales-deck`
-A 15 to 20 slide outline for every buyer profile and one setting:
-booth, investor meeting, or customer call. Raw copy to paste into any
-deck tool.
-
-### `/validation-prep`
-A question sheet for buyer conversations. Built on the Mom Test to get
-past polite feedback. Points your attention to the signals worth
-following up on.
-
-### `/validation-debrief`
-After the conference, pulls exact buyer quotes and finds patterns
-across multiple conversations. Routes the findings back into your
-`/foundation` file for the next round.
+| Skill | What it does |
+|---|---|
+| `/foundation` | Captures your product, buyers, what makes you different, your evidence. Shapes it into a structured file that every other skill reads from. Reusable across campaigns. |
+| `/campaign` | Sets up for a specific event like BIO, JPM, or investor week. Pulls in what's happening there and adapts your intro and pitch deck for that context. |
+| `/positioning-tagline` | Extracts your tagline from real buyer language. Marks it as a guess if you haven't had buyer conversations yet. Updates as you collect more language. |
+| `/narrative` | Three versions of your pitch for every buyer profile: thirty seconds, two minutes, and five minutes. For different occasions and levels of attention. |
+| `/objection-playbook` | Predicts the objections you're most likely to hear from this buyer. Drafts a response for each one so you're not caught off guard at the booth. |
+| `/one-pager` | A printable, one-page handout for every buyer profile. Hand it out at the booth or give it to the person who wants to think about it later. |
+| `/sales-deck` | A 15 to 20 slide outline for every buyer profile and one setting: booth, investor meeting, or customer call. Raw copy to paste into any deck tool. |
+| `/validation-prep` | A question sheet for buyer conversations. Built on the Mom Test to get past polite feedback. Points your attention to the signals worth following up on. |
+| `/validation-debrief` | After the conference, pulls exact buyer quotes and finds patterns across multiple conversations. Routes the findings back into your `/foundation` file for the next round. |
 
 All skills share a single `CONVENTIONS.md` that translates internal terms
 to plain language before any output reaches a buyer.
