@@ -32,7 +32,7 @@ Two ways to install, depending on your tool:
   slash commands. Steps below.
 - **Chat interface** (Claude.ai web, ChatGPT, Claude Desktop main chat):
   use Projects. No install. See further down in this README, or the
-  [visual guide on our landing page](https://landing-page-peach-mu-27.vercel.app/).
+  [visual guide on our landing page](https://bio.norml.studio/).
 
 ---
 
