@@ -21,22 +21,12 @@ Built for scientist-founders. Free.
 All skills share a single `CONVENTIONS.md` that translates internal terms
 to plain language before any output reaches a buyer.
 
----
-
-## Quick reference
-
-Two ways to install, depending on your tool:
-
-- **Claude Code** (CLI, or the Code tab in Claude Desktop, or the VS Code /
-  JetBrains plugin): clone this repo, run one script. Skills become real
-  slash commands. Steps below.
-- **Chat interface** (Claude.ai web, ChatGPT, Claude Desktop main chat):
-  use Projects. No install. See further down in this README, or the
-  [visual guide on our landing page](https://bio.norml.studio/).
+Not a terminal user? See the [visual guide on our landing page](https://bio.norml.studio/)
+for the Claude Desktop and ChatGPT install paths.
 
 ---
 
-## Install — Claude Code (GitHub)
+## Install
 
 Skills become native slash commands: `/foundation`, `/campaign`, and so on.
 The install script symlinks each skill into `~/.claude/skills/` and registers
@@ -47,8 +37,8 @@ a per-session update check that flags new releases inside Claude Code.
 - [**Claude Code**](https://claude.com/product/claude-code) installed and
   opened at least once (so `~/.claude/` exists)
 - **Git**
-- **macOS or Linux.** Windows: use WSL, or use the ChatGPT Projects path
-  below — `./install` relies on Unix symlinks.
+- **macOS or Linux.** Windows: use WSL — `./install` relies on Unix
+  symlinks.
 
 ### Install — one line
 
@@ -110,39 +100,6 @@ other CLIs need their own discovery convention.
 
 ---
 
-## Install — Chat interface (Projects)
-
-For Claude Desktop's Chat tab, Claude.ai web, ChatGPT, or any chat-based
-AI tool. No install required.
-
-Skills go inside one specific Project, not to Claude or ChatGPT globally.
-Claude.ai and ChatGPT don't have global custom skills — those only exist
-in Claude Code. A Project is a scoped container for a chat thread (or a
-set of threads). Skills uploaded to a Project are only available when
-you're inside that Project.
-
-1. Download the zip:
-   [bio-skills.zip](https://github.com/Mogiilka/bio-skills/archive/refs/heads/main.zip)
-2. Unzip it
-3. Open Claude.ai or chatgpt.com → create a new Project
-4. Inside the unzipped folder, upload these 9 skill folders to the
-   Project: `foundation/`, `campaign/`, `positioning-tagline/`,
-   `narrative/`, `objection-playbook/`, `one-pager/`, `sales-deck/`,
-   `validation-prep/`, `validation-debrief/`. Also upload
-   `CONVENTIONS.md` from the root.
-5. In a new conversation, type:
-
-   > Follow the instructions in `foundation/SKILL.md` to start.
-
-Run the skills in sequence within the same conversation. Each skill
-references the output of the previous one. If you start a new
-conversation, upload your latest output files (like `foundation.md`)
-to the Project first so the next skill can read them.
-
-**Prerequisite:** ChatGPT Plus, or any Claude.ai account (Projects is free).
-
----
-
 ## How to use
 
 1. `/foundation` first. Capture product, buyer profile, evidence.
@@ -151,9 +108,6 @@ to the Project first so the next skill can read them.
    `/narrative`, `/objection-playbook`, `/one-pager`, `/sales-deck`.
 4. `/validation-prep` before the conference.
 5. `/validation-debrief` after. Sharpens materials with what you heard.
-
-In the chat-interface path, refer to skills by file name instead of
-slash commands: "follow `foundation/SKILL.md`."
 
 ## A note on safety
 
