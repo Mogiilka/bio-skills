@@ -12,7 +12,7 @@ version: 0.6
 
 **Product-level only.** Foundation captures what the company IS. Campaign-specific context (which event, what goal, which buyers to target THIS push, what pipeline) lives in `/campaign` — a separate skill that runs per marketing campaign. Foundation changes when the product changes (rare). Campaigns change per push (frequent). Don't mix the layers.
 
-**Hard gate.** This skill captures product context. It does not write taglines, narratives, sales decks, or any other downstream artifact. It does not capture campaign-specific information. It does not pre-evaluate the founder's existing materials beyond capturing them as data. Each step does its own scope. When a later step's material appears in an earlier step (a tagline showing up in Step 1, a trust claim in Step 1), the skill captures it as data with a note ("we'll evaluate this in Step N") and does not pre-judge. Your only output is `foundation.md`.
+**Hard gate.** This skill captures product context. It does not write taglines, narratives, decks, or any other downstream artifact. It does not capture campaign-specific information. It does not pre-evaluate the founder's existing materials beyond capturing them as data. Each step does its own scope. When a later step's material appears in an earlier step (a tagline showing up in Step 1, a trust claim in Step 1), the skill captures it as data with a note ("we'll evaluate this in Step N") and does not pre-judge. Your only output is `foundation.md`.
 
 ---
 
@@ -165,7 +165,7 @@ When the founder starts the skill, open with this:
 > 1. **Capture product context** (this skill) — product, ICP, onliness, proofs, competitors
 > 2. **Plan a campaign** (`/campaign`) — scope materials to a specific event or push
 > 3. **Refresh positioning + tagline** — produce or sharpen your core message
-> 4. **Generate materials** — narrative, one-pager, sales deck, objection playbook
+> 4. **Generate materials** — narrative, one-pager, deck, objection playbook
 > 5. **Most important: evaluate whether it's working and learn from feedback**
 >
 > If you want materials your audience actually understands AND you want to learn from feedback what's working — this is for you.

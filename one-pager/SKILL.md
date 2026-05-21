@@ -230,7 +230,7 @@ cta_specificity_check:
 ## Completion
 
 1. Save `one-pager-{icp-slug}.md`.
-2. Tell the founder: *"one-pager-[icp].md saved. Run again for other ICPs. Run `/sales-deck` next for a meeting context, or `/objection-playbook` for live Q&A prep."*
+2. Tell the founder: *"one-pager-[icp].md saved. Run again for other ICPs. Run `/deck` next for a meeting context, or `/objection-playbook` for live Q&A prep."*
 3. Status: DONE if spine confirmed and layout produced. DONE_WITH_CONCERNS if trust points were thin (pre-customer with limited foundation).
 
 ---

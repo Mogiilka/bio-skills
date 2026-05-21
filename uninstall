@@ -7,10 +7,13 @@ set -e
 BUNDLE_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILLS_DIR="$HOME/.claude/skills"
 
-SKILLS="foundation campaign positioning-tagline narrative objection-playbook one-pager sales-deck validation-prep validation-debrief update-bio-skills"
+SKILLS="foundation campaign positioning-tagline narrative objection-playbook one-pager deck validation-prep validation-debrief update-bio-skills"
+
+# Stale symlinks from previous versions (renamed/removed skills).
+LEGACY_SKILLS="sales-deck"
 
 removed=0
-for skill in $SKILLS; do
+for skill in $SKILLS $LEGACY_SKILLS; do
   target="$SKILLS_DIR/$skill"
   [ -L "$target" ] || continue
   link_dest=$(readlink "$target")

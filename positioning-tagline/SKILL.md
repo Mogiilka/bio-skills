@@ -165,7 +165,7 @@ evidence_attribution:
   - "Tagline anchored in Buyer 5's phrasing: '...'"
   - "Positioning matches Buyer 1, 3, 7's language for the pain"
 
-next_step: "Hand to Ivan for craft pass. Ship to /narrative + /one-pager + /sales-deck."
+next_step: "Hand to Ivan for craft pass. Ship to /narrative + /one-pager + /deck."
 ---
 
 [Founder's verbatim quotes preserved in prose]

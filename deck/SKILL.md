@@ -1,14 +1,14 @@
 ---
-name: sales-deck
+name: deck
 description: Produce a structured slide outline for one ICP + meeting context per run, scoped to an active campaign. Outputs markdown the founder pastes into a presentation generator (Gamma, Pitch, Tome, Beautiful.ai). Reads foundation.md, positioning-tagline.md, campaign-{slug}.md (campaign context), narrative-{campaign_slug}-{icp_slug}.md, objection-playbook-{campaign_slug}-{icp_slug}.md (if exists). Per-ICP, per-context, per-campaign.
-version: 0.6
+version: 0.7
 ---
 
-# /sales-deck
+# /deck
 
 ## Mission
 
-`/sales-deck` produces a **15–20 slide deck** for ONE ICP × ONE meeting context.
+`/deck` produces a **15–20 slide deck** for ONE ICP × ONE meeting context.
 
 Meeting contexts:
 - **Booth demo** — short, visual, hooks the buyer in the first 30 seconds
@@ -21,7 +21,7 @@ Per ICP × per context = different deck. Run separately. The skill does NOT prod
 
 **Hard gate.** This skill produces ONE deck for ONE ICP × ONE context per run, scoped to ONE active campaign. Reads foundation, positioning-tagline, campaign-{slug}.md (if exists), and the matching narrative file. Stops if foundation or positioning-tagline missing.
 
-**Reads campaign context.** The campaign defines: which ICPs are in scope, what the goal is (find customers / raise capital / etc.), what meeting contexts are realistic. Without an active campaign, /sales-deck warns that meeting context defaults will be generic and recommends running /campaign first.
+**Reads campaign context.** The campaign defines: which ICPs are in scope, what the goal is (find customers / raise capital / etc.), what meeting contexts are realistic. Without an active campaign, /deck warns that meeting context defaults will be generic and recommends running /campaign first.
 
 **Output is paste-ready outline, not visual design.** The founder takes the markdown to their presentation generator (Gamma, Pitch, Tome, Beautiful.ai) for visual rendering.
 
@@ -96,12 +96,12 @@ Push back: 20 is the cap. If you can't tell the story in 20 slides, the story is
    - find customers → booth_demo or customer_call
    - raise capital → investor_warmup
    - find collaborators → coffee or post_panel
-   - validate hypothesis (pre-customer) → typically /sales-deck × 0; warn founder this skill may not be needed
+   - validate hypothesis (pre-customer) → typically /deck × 0; warn founder this skill may not be needed
    No batching.
 4. **Pick the structure** based on context (booth / investor / customer call).
 5. **Build slide-by-slide outline.** Each slide: headline, content (1-3 bullets), designer ask, speaker note. Output is markdown for paste into a presentation generator.
 6. **Mark `craft_review_needed: true`** for visual design pass.
-7. **Save** as `sales-deck-{campaign-slug}-{icp-slug}-{context}.md`.
+7. **Save** as `deck-{campaign-slug}-{icp-slug}-{context}.md`.
 
 ---
 
@@ -183,7 +183,7 @@ Open with their name + their situation (not your company). Lead with their speci
 
 ---
 
-## Output: sales-deck-{campaign-slug}-{icp-slug}-{context}.md
+## Output: deck-{campaign-slug}-{icp-slug}-{context}.md
 
 ```markdown
 ---
@@ -219,7 +219,7 @@ slides:
 ## Completion
 
 1. Save the deck markdown.
-2. Tell the founder: *"sales-deck-[icp]-[context].md saved. Hand to a designer for visual treatment, or render with Slidev for a rough version. Run again for other ICP × context combos."*
+2. Tell the founder: *"deck-[icp]-[context].md saved. Hand to a designer for visual treatment, or render with Slidev for a rough version. Run again for other ICP × context combos."*
 3. Status: DONE if outline confirmed. DONE_WITH_CONCERNS if trust points or objections thin.
 
 ---
@@ -231,6 +231,6 @@ slides:
 - **Founder doesn't have a team to put on a team slide:** drop the slide. Don't fake.
 - **Pre-customer + investor pitch:** no traction to show. Replace traction slide with mechanism depth or design partnerships if any. Be honest in the deck about stage.
 - **No active campaign:** skill works but warns context defaults will be generic. Recommend running /campaign first if a specific event is upcoming.
-- **Campaign primary_goal = validate hypothesis (pre-customer):** /campaign typically routes /sales-deck × 0 because no booked meetings exist. If founder runs anyway, accept and produce a generic deck with a warning that no booked context exists.
+- **Campaign primary_goal = validate hypothesis (pre-customer):** /campaign typically routes /deck × 0 because no booked meetings exist. If founder runs anyway, accept and produce a generic deck with a warning that no booked context exists.
 - **Multiple active campaigns:** ask founder which campaign + context this deck scopes to.
 - **Campaign has no situation requiring a deck (cold outreach, podcast tour):** push back. "This campaign typically doesn't use a sales deck. Are you sure you want to build one? If yes, what context will you use it in?"

@@ -14,7 +14,7 @@ Built for scientist-founders. Free.
 | `/narrative` | Three versions of your pitch for every buyer profile: thirty seconds, two minutes, and five minutes. For different occasions and levels of attention. |
 | `/objection-playbook` | Predicts the objections you're most likely to hear from this buyer. Drafts a response for each one so you're not caught off guard at the booth. |
 | `/one-pager` | A printable, one-page handout for every buyer profile. Hand it out at the booth or give it to the person who wants to think about it later. |
-| `/sales-deck` | A 15 to 20 slide outline for every buyer profile and one setting: booth, investor meeting, or customer call. Raw copy to paste into any deck tool. |
+| `/deck` | A 15 to 20 slide outline for every buyer profile and one setting: booth, investor meeting, or customer call. Raw copy to paste into any deck tool. |
 | `/validation-prep` | A question sheet for buyer conversations. Built on the Mom Test to get past polite feedback. Points your attention to the signals worth following up on. |
 | `/validation-debrief` | After the conference, pulls exact buyer quotes and finds patterns across multiple conversations. Routes the findings back into your `/foundation` file for the next round. |
 
@@ -105,7 +105,7 @@ other CLIs need their own discovery convention.
 1. `/foundation` first. Capture product, buyer profile, evidence.
 2. `/campaign` next. Name your event.
 3. Run any of these for your campaign: `/positioning-tagline`,
-   `/narrative`, `/objection-playbook`, `/one-pager`, `/sales-deck`.
+   `/narrative`, `/objection-playbook`, `/one-pager`, `/deck`.
 4. `/validation-prep` before the conference.
 5. `/validation-debrief` after. Sharpens materials with what you heard.
 

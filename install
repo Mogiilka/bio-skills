@@ -8,7 +8,10 @@ set -e
 BUNDLE_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILLS_DIR="$HOME/.claude/skills"
 
-SKILLS="foundation campaign positioning-tagline narrative objection-playbook one-pager sales-deck validation-prep validation-debrief update-bio-skills"
+SKILLS="foundation campaign positioning-tagline narrative objection-playbook one-pager deck validation-prep validation-debrief update-bio-skills"
+
+# Stale symlinks from previous versions (renamed/removed skills).
+LEGACY_SKILLS="sales-deck"
 
 command -v python3 >/dev/null 2>&1 || {
   echo "✗ python3 not found. bio-skills install needs python3 to register the update notifier."
@@ -18,6 +21,16 @@ command -v python3 >/dev/null 2>&1 || {
 }
 
 mkdir -p "$SKILLS_DIR"
+
+# Clean up legacy symlinks that still point into this bundle (from a prior install).
+for skill in $LEGACY_SKILLS; do
+  target="$SKILLS_DIR/$skill"
+  [ -L "$target" ] || continue
+  link_dest=$(readlink "$target")
+  case "$link_dest" in
+    "$BUNDLE_DIR"/*) rm "$target" ;;
+  esac
+done
 
 # Refuse to overwrite real directories or foreign symlinks under our skill names.
 collisions=""

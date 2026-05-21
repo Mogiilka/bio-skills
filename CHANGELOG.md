@@ -2,6 +2,19 @@
 
 All notable changes to bio-skills will be documented in this file.
 
+## [0.2.0] — 2026-05-20
+
+### Changed
+- Renamed `/sales-deck` → `/deck`. Folder, slash command, output filename
+  pattern (`sales-deck-{...}.md` → `deck-{...}.md`), and cross-references in
+  other skills updated.
+
+### Migration
+- After `git pull`, re-run `./install`. The installer now cleans up the
+  stale `~/.claude/skills/sales-deck` symlink automatically.
+- Existing output files named `sales-deck-{...}.md` keep working — they're
+  just markdown. New runs save as `deck-{...}.md`.
+
 ## [0.1.0] — 2026-05-19
 
 ### Added

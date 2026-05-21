@@ -1,6 +1,6 @@
 ---
 name: campaign
-description: Routes founders to the right materials for an event or marketing push. Reads foundation.md (product context). Captures campaign-specific context (type, goal, target buyers, pipeline, situations). Outputs campaign-{slug}.md plus a routing recommendation — which downstream skills to run, how many times, in what order. Most appliers conference-shaped, but /one-pager and /sales-deck adapt to other contexts.
+description: Routes founders to the right materials for an event or marketing push. Reads foundation.md (product context). Captures campaign-specific context (type, goal, target buyers, pipeline, situations). Outputs campaign-{slug}.md plus a routing recommendation — which downstream skills to run, how many times, in what order. Most appliers conference-shaped, but /one-pager and /deck adapt to other contexts.
 version: 0.1
 ---
 
@@ -19,7 +19,7 @@ Three-layer architecture this skill enables:
 
 **Hard gate.** This skill produces a campaign file and a routing recommendation. It does not generate narratives, taglines, decks, one-pagers, or objection playbooks. Reads `foundation.md`. Stops if foundation missing.
 
-**Reusability.** Most appliers in this suite were built with conferences in mind. /one-pager and /sales-deck work for other contexts (cold sales, podcast appearances, investor calls, webinars). /campaign asks what you're prepping for and adapts the routing.
+**Reusability.** Most appliers in this suite were built with conferences in mind. /one-pager and /deck work for other contexts (cold sales, podcast appearances, investor calls, webinars). /campaign asks what you're prepping for and adapts the routing.
 
 ---
 
@@ -137,12 +137,12 @@ pipeline you have, and a recommendation on which materials to build (and
 which to skip). ~20 min.
 
 Most appliers in this suite are built with conferences in mind, but
-/one-pager and /sales-deck work for other contexts too (cold sales,
+/one-pager and /deck work for other contexts too (cold sales,
 podcast appearances, investor calls). I'll adapt based on what you're
 prepping for.
 
 What I'm not building: the materials themselves. /narrative,
-/positioning-tagline, /one-pager, /sales-deck, /objection-playbook do
+/positioning-tagline, /one-pager, /deck, /objection-playbook do
 that. /campaign tells you which ones to run.
 
 Reading foundation.md.
@@ -286,7 +286,7 @@ Pipeline state for this campaign?
   mixed (specify)
 ```
 
-This is load-bearing for the routing. Booked meetings change which materials matter (sales deck, longer narrative). Cold means short-form materials matter most.
+This is load-bearing for the routing. Booked meetings change which materials matter (deck, longer narrative). Cold means short-form materials matter most.
 
 ### STOP
 
@@ -368,7 +368,7 @@ routing:
   one_pager:
     icps: [icp_id1]
     notes: "..."
-  sales_deck:
+  deck:
     icps: [icp_id1]
     contexts: ["booth_demo" | "investor_warmup" | "customer_call"]
     notes: "..."
@@ -414,7 +414,7 @@ Conditional rules the skill applies:
 - Podcast tour → skip.
 - Webinar series → skip unless lead-gen mechanism.
 
-**Sales deck:**
+**Deck:**
 - Conference + booked meetings → run per situation (booth_demo, investor_warmup, customer_call).
 - Conference + cold + no booth → skip entirely.
 - Investor roadshow + booked meetings → run investor-warmup deck.
@@ -436,7 +436,7 @@ Routing for this campaign:
   /positioning-tagline 1     [reasoning, path]
   /narrative           N     [reasoning, lengths]
   /one-pager           N     [reasoning]
-  /sales-deck          N     [reasoning]
+  /deck          N     [reasoning]
   /objection-playbook  N     [reasoning]
 
 Total: N runs, ~X hours. Running everything blindly: ~Y runs, ~Z hours.
@@ -461,7 +461,7 @@ Default ordering rules:
 2. Narrative for priority ICP next (voice cadence locks)
 3. Narrative for second ICP
 4. One-pager (per ICP, if running)
-5. Sales deck (per ICP × situation, if running)
+5. Deck (per ICP × situation, if running)
 6. Objection-playbook last (often needs early conversations as input)
 
 ### STOP
