@@ -6,6 +6,8 @@ version: 0.7
 
 # /deck
 
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
+
 ## Mission
 
 `/deck` produces a **15–20 slide deck** for ONE ICP × ONE meeting context.
@@ -160,7 +162,7 @@ From upstream skill outputs:
 7. **Result 2** — second trust point
 8. **Result 3** — third trust point
 9. **What this means for you** — ICP-specific outcome
-10. **Why now** — timing or market context (only if real, skip if not)
+10. **Why now** — timing or market context (only if grounded, skip if not)
 11. **The team** — founder + key collaborators (only if a credential trust point)
 12. **What's next** — roadmap, no more than 3 milestones
 13. **Common questions** — 2–3 likely objections with one-line responses
@@ -168,7 +170,7 @@ From upstream skill outputs:
 15. **Contact** — name, email, link
 
 ### Investor pitch (18-20 slides)
-Same as booth + insert: traction details, market sizing (real, not made up), competitive positioning slide, ask (round size + use of funds), team in more detail.
+Same as booth + insert: traction details, market sizing (grounded, not made up), competitive positioning slide, ask (round size + use of funds), team in more detail.
 
 ### Customer call (15 slides, ICP-personalized)
 Open with their name + their situation (not your company). Lead with their specific pain. Bring receipts. End with a specific next step in their world (free pilot, evaluation period).

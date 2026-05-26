@@ -6,6 +6,8 @@ version: 0.6
 
 # /one-pager
 
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
+
 ## Mission
 
 `/one-pager` produces a **one-page printable PDF leave-behind**. One ICP at a time. The founder runs it once per ICP they need.
@@ -239,7 +241,7 @@ cta_specificity_check:
 
 - **Only one ICP in scope (foundation or campaign):** skip the "which ICP" question. Use the priority ICP automatically.
 - **Trust points all marked low-strength:** flag honestly. Founder may need to demote the page from "leave-behind for cold prospects" to "talking-points for warm conversations."
-- **CTA can't be specific (no named person yet):** push founder to commit to a name. *"Who specifically takes the email? You? A team email? Use a real address."*
+- **CTA can't be specific (no named person yet):** push founder to commit to a name. *"Who specifically takes the email? You? A team email? Use a working address."*
 - **No active campaign:** skill works but warns CTA will be generic. Recommend running /campaign first if a specific event/push is coming up.
 - **Multiple active campaigns:** ask founder which campaign this one-pager scopes to.
 - **Campaign goal mismatches one-pager use case:** for podcast tour or webinar series, /campaign typically routes /one-pager × 0. If founder runs anyway, accept and produce a generic version with a warning that the campaign goal doesn't typically need a one-pager.

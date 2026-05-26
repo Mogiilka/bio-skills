@@ -10,7 +10,7 @@ version: 0.1.0
 
 Pull the latest bio-skills from GitHub without making the founder leave Claude Code. Surface what changed in plain language. Tell them when a restart is needed.
 
-This skill is infrastructure. It does not produce founder-facing artifacts. It does not write to `foundation.md` or any other artifact file. If the founder runs `/update-bio-skills` expecting methodology output, redirect them to `/foundation` or whichever skill they meant.
+This skill is infrastructure. It does not produce founder-facing outputs. It does not write to `foundation.md` or any other output file. If the founder runs `/update-bio-skills` expecting methodology output, redirect them to `/foundation` or whichever skill they meant.
 
 ---
 
@@ -32,7 +32,7 @@ Bundle directory: `~/.claude/skills/bio-skills`
 6. If the pull succeeded with new commits:
    a. Read `~/.claude/skills/bio-skills/CHANGELOG.md`.
    b. Extract the entries between the old version and the new version.
-   c. Summarize each entry in one plain-language sentence per bullet — no jargon, no internal skill terms (apply `CONVENTIONS.md` glossary translation if it exists).
+   c. Summarize each entry in one plain-language sentence per bullet — no jargon, no internal skill terms (apply `CONVENTIONS.md` glossary swap if it exists).
    d. Tell the founder: *"Updated bio-skills from v[OLD] to v[NEW]. Changes: [bullets]. Restart Claude Code (or start a new chat) to load the updates."*
 
 ---

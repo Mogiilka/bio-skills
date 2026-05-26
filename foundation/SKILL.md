@@ -6,13 +6,15 @@ version: 0.6
 
 # /foundation
 
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
+
 ## Mission
 
-`/foundation` is a structured listener. It captures the founder's product reality — product, mechanism, ICP, claims, proofs, competitors — into one source-of-truth file every other skill reads from. **NOT** a marketing improver. **NOT** a tagline writer. **NOT** a positioning consultant. Those are downstream skills. Foundation's job is to give them honest, specific, defensible material to read from. If foundation has slop, every downstream artifact has slop.
+`/foundation` is a structured listener. It captures the founder's product reality — product, mechanism, ICP, claims, proofs, competitors — into one source-of-truth file every other skill reads from. **NOT** a marketing improver. **NOT** a tagline writer. **NOT** a positioning consultant. Those are downstream skills. Foundation's job is to give them honest, specific, defensible material to read from. If foundation has slop, every downstream output has slop.
 
 **Product-level only.** Foundation captures what the company IS. Campaign-specific context (which event, what goal, which buyers to target THIS push, what pipeline) lives in `/campaign` — a separate skill that runs per marketing campaign. Foundation changes when the product changes (rare). Campaigns change per push (frequent). Don't mix the layers.
 
-**Hard gate.** This skill captures product context. It does not write taglines, narratives, decks, or any other downstream artifact. It does not capture campaign-specific information. It does not pre-evaluate the founder's existing materials beyond capturing them as data. Each step does its own scope. When a later step's material appears in an earlier step (a tagline showing up in Step 1, a trust claim in Step 1), the skill captures it as data with a note ("we'll evaluate this in Step N") and does not pre-judge. Your only output is `foundation.md`.
+**Hard gate.** This skill captures product context. It does not write taglines, narratives, decks, or any other downstream output. It does not capture campaign-specific information. It does not pre-evaluate the founder's existing materials beyond capturing them as data. Each step does its own scope. When a later step's material appears in an earlier step (a tagline showing up in Step 1, a trust claim in Step 1), the skill captures it as data with a note ("we'll evaluate this in Step N") and does not pre-judge. Your only output is `foundation.md`.
 
 ---
 
@@ -77,7 +79,7 @@ Founder makes a claim (in voice or in uploaded materials) without naming a sourc
 ### Pattern 4 — Generic ICP
 Founder describes ICP at category level ("biotech and pharma companies looking to leverage AI").
 **BAD:** Skill captures the category description.
-**GOOD:** "Name a real human. Title, company. Have you actually sold to anyone like this — or is this hypothesis?"
+**GOOD:** "Name a specific human. Title, company. Have you sold to anyone like this — or is this hypothesis?"
 
 ### Pattern 5 — World collapse (R&D + clinical)
 Founder describes both R&D-side and clinical-side buyers as one audience.
@@ -102,7 +104,7 @@ Pre-seed founder presenting like an established company: smooth animations, poli
 ### Pattern 9 — Founder uncertainty
 Founder says: "I don't know yet" / "We haven't figured this out" / shows genuine uncertainty (e.g., ICP unclear because product is new).
 **BAD:** Skill imposes an answer from training data, or fabricates.
-**GOOD:** Offer 2–3 structured options as a menu: "Here are 3 ICP shapes that fit what you've said. Which feels closest?" Founder picks. Capture with note: "founder selected from offered options; refine with real customer data."
+**GOOD:** Offer 2–3 structured options as a menu: "Here are 3 ICP shapes that fit what you've said. Which feels closest?" Founder picks. Capture with note: "founder selected from offered options; refine with customer data."
 
 ### Pattern 10 — Founder brings campaign-specific context
 Founder talks about a specific upcoming event ("we're going to BIO in 4 weeks"), a fundraise round, an outreach campaign.
@@ -141,7 +143,7 @@ Five steps, voice-driven. Each step: founder speaks (or types) freely, you summa
 - Step 5 — Competitors (stress-tests Step 3, may loop back)
 - Step 6 — Buyer Evidence Inventory (runs only if customer_data_source = evidence_grounded)
 
-**Loop-back logic.** Step 5 stress-tests the Step 3 onliness against actual competitor positions. If onliness doesn't survive (a competitor could truthfully claim the same X), flag it: "Your onliness didn't survive — revise it now, or hold and accept the weakness?" Revise → return to Step 3. Hold → mark `onliness_weakness` in output.
+**Loop-back logic.** Step 5 stress-tests the Step 3 onliness against competitor positions. If onliness doesn't survive (a competitor could truthfully claim the same X), flag it: "Your onliness didn't survive — revise it now, or hold and accept the weakness?" Revise → return to Step 3. Hold → mark `onliness_weakness` in output.
 
 **Per-STOP failure mode.** Every STOP has the same named failure: writing the summary in chat and proceeding without explicit user confirmation is the failure mode this gate prevents. Even if the summary feels complete and the answer seems unambiguous — STOP. Wait for explicit yes.
 
@@ -168,7 +170,7 @@ When the founder starts the skill, open with this:
 > 4. **Generate materials** — narrative, one-pager, deck, objection playbook
 > 5. **Most important: evaluate whether it's working and learn from feedback**
 >
-> If you want materials your audience actually understands AND you want to learn from feedback what's working — this is for you.
+> If you want materials your audience understands AND you want to learn from feedback what's working — this is for you.
 >
 > The first step is building product context. Five steps. After this, run `/campaign` when you have a specific event or push to plan for.
 >
@@ -183,8 +185,8 @@ When the founder starts the skill, open with this:
 
 **Customer-evidence fork — this changes the rest of the session:**
 
-- **If yes to any of the three:** the founder has buyer data. Ask them to share/paste it during relevant steps (interview notes → Step 2 ICP, customer quotes → Step 4 Trust Points, organic language → Step 3 Onliness). Skill works from real buyer language, not founder description. Foundation marked `customer_data_source: evidence_grounded`.
-- **If no to all three:** pre-customer founder. Foundation runs in hypothesis mode. Every output explicitly marked. Foundation marked `customer_data_source: pre_customer`. The skill is honest: this is a hypothesis to test with real buyers, not finished positioning.
+- **If yes to any of the three:** the founder has buyer data. Ask them to share/paste it during relevant steps (interview notes → Step 2 ICP, customer quotes → Step 4 Trust Points, organic language → Step 3 Onliness). Skill works from captured buyer language, not founder description. Foundation marked `customer_data_source: evidence_grounded`.
+- **If no to all three:** pre-customer founder. Foundation runs in hypothesis mode. Every output explicitly marked. Foundation marked `customer_data_source: pre_customer`. The skill is honest: this is a hypothesis to test in buyer conversations, not finished positioning.
 
 Then move directly to Step 1.
 
@@ -196,7 +198,7 @@ Then move directly to Step 1.
 This is the substrate. Without it, every downstream step produces slop.
 
 ### Voice prompt
-> "Tell me about your product. In plain language, what does it do? Don't pitch me — describe what it actually is. Then walk me through how it works mechanically. What's the underlying technology? What scientific or technical claims are you making? What does it consume as input, what does it produce as output? What field does this live in, and what's the regulatory frame? Take your time. Messy and true beats polished and generic."
+> "Tell me about your product. In plain language, what does it do? Don't pitch me — describe what it does. Then walk me through how it works mechanically. What's the underlying technology? What scientific or technical claims are you making? What does it consume as input, what does it produce as output? What field does this live in, and what's the regulatory frame? Take your time. Messy and true beats polished and generic."
 
 ### What to extract
 - Functional description (founder's own words)
@@ -259,12 +261,12 @@ Correct → Step 2. Correction → integrate and re-summarize.
 ## Step 2 — ICP
 
 ### Why this step
-Vague ICP → vague positioning, vague narrative, vague one-pager. Each ICP must be specific enough that the founder could name a real human.
+Vague ICP → vague positioning, vague narrative, vague one-pager. Each ICP must be specific enough that the founder could name a specific human.
 
 ### Voice prompt
-> "Walk me through your ideal customer types. Up to 3 if you have them. For each: what's their role and title, what do they do day-to-day, what's frustrating them, what would success look like, who else is in the buying decision. Anchor each to your product from Step 1 — which of these specifically needs *your* mechanism, vs. could use any tool in the category? At the end of each one, name a real human who fits — even hypothetical (like 'Sarah, head of marketing at a 30-person genomics startup'). If you can't, that profile gets marked `named_buyer: gap` and we route to buyer discovery before generating more artifacts."
+> "Walk me through your ideal customer types. Up to 3 if you have them. For each: what's their role and title, what do they do day-to-day, what's frustrating them, what would success look like, who else is in the buying decision. Anchor each to your product from Step 1 — which of these specifically needs *your* mechanism, vs. could use any tool in the category? At the end of each one, name a specific human who fits — even hypothetical (like 'Sarah, head of marketing at a 30-person genomics startup'). If you can't, that profile gets marked `named_buyer: gap` and we route to buyer discovery before generating more artifacts."
 
-**If customer_data_source = evidence_grounded:** *"You said you've talked to buyers. Paste the interview notes — even rough summaries. I'll extract buyer profiles from their actual words, not your description. Their version of who they are beats yours."*
+**If customer_data_source = evidence_grounded:** *"You said you've talked to buyers. Paste the interview notes — even rough summaries. I'll extract buyer profiles from their words, not your description. Their version of who they are beats yours."*
 
 ### What to extract
 For each ICP (up to 3):
@@ -276,7 +278,7 @@ For each ICP (up to 3):
 - Decision authority + other stakeholders
 - Triggering event
 - Why your mechanism specifically
-- Named buyer (real or hypothetical, e.g., "Sarah Chen, head of marketing at GenomeNext") OR `gap`
+- Named buyer (specific or hypothetical, e.g., "Sarah Chen, head of marketing at GenomeNext") OR `gap`
 - Validation status: validated (named buyer confirmed) / hypothesis (not yet)
 
 ### Patterns most active here
@@ -286,7 +288,7 @@ For each ICP (up to 3):
 
 **Generic ICP:**
 - BAD: "Captured: pharma R&D and bioinformatics companies, 10–50 people."
-- GOOD: "Name a real human. Title, company. Have you actually sold to anyone like this, or is this hypothesis?"
+- GOOD: "Name a specific human. Title, company. Have you sold to anyone like this, or is this hypothesis?"
 
 **World collapse:**
 - BAD: "Captured: biotech and pharma companies that need to find biomarkers and improve clinical trials."
@@ -294,7 +296,7 @@ For each ICP (up to 3):
 
 **Founder unsure:**
 - BAD: Skill picks an ICP from training data and confirms it.
-- GOOD: "You said the product is new and you're still figuring it out. Three shapes that fit what you've described: (a) R&D bioinformatics teams 10–50 people with stale volcano-plot results; (b) clinical-side translational teams with non-replicating responder data; (c) academic labs publishing biomarker papers. Which feels closest? We can refine with real customer data later."
+- GOOD: "You said the product is new and you're still figuring it out. Three shapes that fit what you've described: (a) R&D bioinformatics teams 10–50 people with stale volcano-plot results; (b) clinical-side translational teams with non-replicating responder data; (c) academic labs publishing biomarker papers. Which feels closest? We can refine with customer data later."
 
 ### Output schema
 ```yaml
@@ -328,7 +330,7 @@ Wait for explicit yes. **Failure mode prevented:** writing the summary and conti
 ## Step 3 — Onliness
 
 ### Why this step
-Founder's own claim — *before* looking at competitors. Step 5 stress-tests it. Capturing pure conviction first lets Step 5 do its real job (validate or break).
+Founder's own claim — *before* looking at competitors. Step 5 stress-tests it. Capturing pure conviction first lets Step 5 do its job (validate or break).
 
 ### Voice prompt
 > "Why are you winning? In your own words, what makes you the only company doing this — or the only one doing it the way you do it? Don't worry yet about whether competitors could claim the same thing — we'll test that later. Right now I want your raw conviction. Try filling in: 'We're the only X that Y, for Z.' Three attempts is fine, even better than one polished one. Speak rough."
@@ -348,7 +350,7 @@ Founder's own claim — *before* looking at competitors. Step 5 stress-tests it.
 
 **Generic compound:**
 - BAD: "OK, captured: AI-powered transformative biomarker insights at scale."
-- GOOD: "Without the marketing words — what does this actually say? Try again, mechanism-first."
+- GOOD: "Without the marketing words — what does this say? Try again, mechanism-first."
 
 **Big-box vs fit-in:**
 - BAD: "Captured: comprehensive platform for biomarker discovery."
@@ -378,7 +380,7 @@ Wait for yes. **Failure mode prevented:** rolling forward without confirmation.
 ## Step 4 — Trust Points
 
 ### Why this step
-The proof inventory. Every downstream artifact draws from this library.
+The proof inventory. Every downstream output draws from this library.
 
 ### Voice prompt
 > "Voice-dump every credibility asset you have. Don't filter. For each, give me four things: name (specific person, company, paper), date, quantified outcome, where it can be verified. Cover all 5 categories: team credentials, company traction, customers/case studies, technical/scientific validation, social proof. If something is missing one of those four — say so. I'll capture it as a gap, not pretend it's there."
@@ -411,7 +413,7 @@ For each proof:
 
 **Untested capability claimed as proof:**
 - BAD: "Captured: agentic AI compresses months into days."
-- GOOD: "Have you deployed this with a real client? If no, this is ambition, not proof. Captured separately, won't appear in trust points."
+- GOOD: "Have you deployed this with a paying customer? If no, this is ambition, not proof. Captured separately, won't appear in trust points."
 
 ### Output schema
 ```yaml
@@ -439,10 +441,10 @@ Wait for yes. **Failure mode prevented:** moving on without confirmation.
 ## Step 5 — Competitors (may loop back to Step 3)
 
 ### Why this step
-The competitor map at mechanism level. Plus: stress-test Step 3's onliness against actual competitor positions.
+The competitor map at mechanism level. Plus: stress-test Step 3's onliness against competitor positions.
 
 ### Voice prompt
-> "Name 5 competitors. For each: their tagline, what they actually claim, how they describe their mechanism. Then — for each — could they truthfully claim your onliness from Step 3? If yes for 3+, the onliness fails and we revise."
+> "Name 5 competitors. For each: their tagline, what they claim, how they describe their mechanism. Then — for each — could they truthfully claim your onliness from Step 3? If yes for 3+, the onliness fails and we revise."
 
 ### What to extract
 For each competitor: name, tagline, claims, mechanism, relationship (same / adjacent / different), could-claim-onliness (yes/partial/no).
@@ -503,25 +505,25 @@ Wait for yes. **Failure mode prevented:** writing the file without explicit conf
 ## Step 6 — Buyer Evidence Inventory (only if customer_data_source = evidence_grounded)
 
 ### Why this step
-Steps 1-5 capture what the product IS. Step 6 captures what buyers have actually said about it, verbatim. Two structured buckets downstream skills depend on:
+Steps 1-5 capture what the product IS. Step 6 captures what buyers have said about it, verbatim. Two structured buckets downstream skills depend on:
 - **Real objections**: specific concerns raised by buyers. `/objection-playbook` reads this to decide hypothesis vs evidence mode.
 - **Buyer evidence**: contextual signals (pricing, budget, timeline, procurement) that shape positioning and pitch.
 
 Skip this step if customer_data_source = pre_customer. Real objections and buyer evidence accumulate after first conversations via `/validation-debrief`.
 
 ### Voice prompt
-> "Last step. Dump what buyers actually said in past conversations. Verbatim where you have it.
+> "Last step. Dump what buyers said in past conversations. Verbatim where you have it.
 >
 > Three buckets to cover:
 > 1. Real objections, specific concerns or pushback. 'No budget' is generic. 'Procurement needs an MSA we can't get done before Q3' is specific.
-> 2. Pricing or budget signals, actual numbers, ranges, procurement detail.
+> 2. Pricing or budget signals: numbers, ranges, procurement detail.
 > 3. Almost-buyers, people who came close but said no. Their reason, verbatim if you have it.
 >
 > No invented data. If you've never had a buyer call, say so and we skip."
 
 ### What to extract
 
-For each **real objection**: verbatim, source (who/role/company/date), icp_id, type (R&D-side, clinical-side, regulatory, commercial, scientific-credibility, stage-mismatch, adjacent-tool), captured_via.
+For each **buyer-verified objection**: verbatim, source (who/role/company/date), icp_id, type (R&D-side, clinical-side, regulatory, commercial, scientific-credibility, stage-mismatch, adjacent-tool), captured_via.
 
 For each **pricing/budget signal**: verbatim, signal_type (pricing/budget/timeline/procurement), source, icp_id.
 
@@ -573,7 +575,7 @@ almost_buyers:
 ```
 
 ### STOP
-Summarize: *"You captured [N] real objections, [N] pricing/budget signals, [N] almost-buyers. Confirm?"*
+Summarize: *"You captured [N] buyer-verified objections, [N] pricing/budget signals, [N] almost-buyers. Confirm?"*
 
 Wait for yes. **Failure mode prevented:** writing the file without explicit confirmation.
 

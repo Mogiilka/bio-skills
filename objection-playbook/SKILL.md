@@ -1,10 +1,12 @@
 ---
 name: objection-playbook
-description: Prep founders for live Q&A at biotech conferences. Two modes auto-detected from foundation. Hypothesis mode (no real objections yet) predicts likely objections per ICP, drafts responses marked status hypothesis, output doubles as conference capture template. Evidence mode (real objections in foundation) triages each through fit, heard-you-right, pattern, then routes to park, positioning-fix, or cheat sheet. Reads foundation, positioning-tagline, campaign-{slug}. Output objection-playbook-{campaign-slug}-{icp-slug}.md.
+description: Prep founders for live Q&A at biotech conferences. Two modes auto-detected from foundation. Hypothesis mode (no buyer-verified objections yet) predicts likely objections per ICP, drafts responses marked status hypothesis, output doubles as conference capture template. Evidence mode (buyer-verified objections in foundation) triages each through fit, heard-you-right, pattern, then routes to park, positioning-fix, or cheat sheet. Reads foundation, positioning-tagline, campaign-{slug}. Output objection-playbook-{campaign-slug}-{icp-slug}.md.
 version: 0.7
 ---
 
 # /objection-playbook
+
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
 
 ## Mission
 
@@ -12,7 +14,7 @@ version: 0.7
 
 **Hypothesis mode.** Founder hasn't had buyer conversations yet, or has too few to cluster. Skill predicts likely objections per ICP using foundation, positioning, and Naomi's biotech reframe library. Drafts responses, marks every entry `status: hypothesis`. The cheat sheet doubles as a capture template. At the conference, founder ticks predictions that came up and writes verbatim what didn't. Output is annotated reality, not just rehearsal.
 
-**Evidence mode.** Foundation already has real objections (founder dictated them during /foundation from prior buyer calls). Skill triages each one before any reframe is drafted. Three questions: was the buyer in your ICP, did they describe what you do correctly, has more than one fit buyer said the same thing. Each objection routes to one of three outcomes: park (not your buyer), positioning fix (heard you wrong), or cheat sheet (real concern from a real fit buyer).
+**Evidence mode.** Foundation already has buyer-verified objections (founder dictated them during /foundation from prior buyer calls). Skill triages each one before any reframe is drafted. Three questions: was the buyer in your ICP, did they describe what you do correctly, has more than one fit buyer said the same thing. Each objection routes to one of three outcomes: park (not your buyer), positioning fix (heard you wrong), or cheat sheet (verified concern from a fit buyer).
 
 The skill auto-detects mode by reading foundation. Fewer than 3 entries in `real_objections[]`, hypothesis mode runs. Otherwise evidence mode runs. Founder can override.
 
@@ -45,7 +47,7 @@ Industry insider's eye plus sharp interrogator's instinct. Posture varies by mod
 - Paraphrase the founder's verbatim
 - Use generic reframe vocabulary ("That's a great question, let me address that...")
 - Pretend evidence the foundation doesn't have
-- Draft a smooth reframe for an objection that's actually a positioning artifact
+- Draft a smooth reframe for an objection that's a positioning issue
 
 ---
 
@@ -66,25 +68,25 @@ Industry insider's eye plus sharp interrogator's instinct. Posture varies by mod
 ## Patterns
 
 ### Pattern 1, Founder paraphrases objection
-*"They were concerned about validation."* → *"Verbatim. What did they actually say? Whose voice? In what context?"*
+*"They were concerned about validation."* → *"Verbatim. What did they say? Whose voice? In what context?"*
 
 ### Pattern 2, Founder offers a defensive reframe before triage
 *"We can just tell them they're wrong about the WGCNA comparison."* → No. Triage first. Was this person ICP-fit? Did they describe what you do correctly? Have other fit buyers said the same? Reframe is what you do for the residual.
 
 ### Pattern 3, Reframe without evidence
-Skill produces a reframe, asks "what evidence backs this?" If founder has none in foundation, mark `evidence_gap: true` and note: "We need to acquire evidence here, OR we acknowledge the objection as a real limit honestly in the conversation."
+Skill produces a reframe, asks "what evidence backs this?" If founder has none in foundation, mark `evidence_gap: true` and note: "We need to acquire evidence here, OR we acknowledge the objection as a limit honestly in the conversation."
 
 ### Pattern 4, Generic reframe vocabulary
 *"That's a great question, let me address that."* → Banned. Skip the validation phrase. Go straight to acknowledge: *"You're right that..."* or *"That's the WGCNA concern."*
 
 ### Pattern 5, Founder over-relies on technical reframe
-For non-scientist buyers (CEOs, CMOs), technical reframes don't land. Check: does the buyer understand the technical detail? If no, the reframe needs an analogy or outcome-translation.
+For non-scientist buyers (CEOs, CMOs), technical reframes don't land. Check: does the buyer understand the technical detail? If no, the reframe needs an analogy or a plain-language outcome statement.
 
 ### Pattern 6, Founder names a wrong-fit buyer's objection
 *"Big-pharma BD person at JPM said our case studies were too small."* → *"Was big-pharma BD on your ICP list? If you wouldn't have actively chased that meeting, this objection is noise. Park it."*
 
 ### Pattern 7, Buyer described you wrong
-*"They called us a design studio."* → Position artifact, not domain objection. Write to positioning-tagline.md as buyer-misread to neutralize. Don't go on the cheat sheet.
+*"They called us a design studio."* → Positioning issue, not domain objection. Write to positioning-tagline.md as buyer-misread to neutralize. Don't go on the cheat sheet.
 
 ---
 
@@ -119,7 +121,7 @@ For each ICP defined in foundation, generate 3 to 5 likely objections using:
 - Competitor positioning from foundation Step 5 (what they'll compare you to)
 
 Voice prompt:
-> "No real objections in foundation yet. Predicting likely ones for the conference. For ICP 1, [name from foundation], the most common pushback at this stage is usually about [X]. Drafting three likely objections plus draft responses. Listen for them at the event."
+> "No buyer-verified objections in foundation yet. Predicting likely ones for the conference. For ICP 1, [name from foundation], the most common pushback at this stage is usually about [X]. Drafting three likely objections plus draft responses. Listen for them at the event."
 
 Each prediction marked `status: hypothesis`. The cheat sheet has a capture column. Founder ticks predictions that came up at the conference and writes verbatim ones that didn't. Skip Step 1B and go to Step 2.
 
@@ -148,7 +150,7 @@ If founder gives their own pitch instead of the buyer's read:
 > "Not what you said. What they said back. If you can't recall a phrase they used, you weren't listening for it. Marking this 'unverified' and continuing."
 
 Follow-up once founder gives a quote:
-> "Did that match what you actually do, or close-but-wrong? If they got the category wrong, or described a different job than the one you solve, the positioning didn't land. The objection is a positioning artifact, not a real concern."
+> "Did that match what you do, or close-but-wrong? If they got the category wrong, or described a different job than the one you solve, the positioning didn't land. The objection is a positioning issue, not a domain concern."
 
 Routing:
 - Match → continue to Q3
@@ -161,7 +163,7 @@ Voice prompt:
 > "Who else said this, or something close to it? Name names. Even one."
 
 If founder strains or invents:
-> "If you have to dig, it's one-off. Don't invent a pattern. One real instance gets a real response on the sheet. Two or more is a foundation problem, not a sales problem."
+> "If you have to dig, it's one-off. Don't invent a pattern. One specific instance gets a thought-out response on the sheet. Two or more is a foundation problem, not a sales problem."
 
 Routing:
 - 1 fit buyer → reframe goes on the sheet (continue to Step 2)
@@ -232,7 +234,7 @@ YOU SAY:
 4. BRIDGE, "[open question / next step]"
 
 [If evidence_gap: ⚠ HONEST LIMIT, acknowledge openly: "[draft acknowledgment]"]
-[If hypothesis: □ DID THEY SAY THIS? Tick if heard. Note actual phrasing.]
+[If hypothesis: □ DID THEY SAY THIS? Tick if heard. Note their phrasing.]
 ─────────────────────────────────────────────
 ```
 
@@ -333,7 +335,7 @@ evidence_gap_summary:
 
 1. Save `objection-playbook-{campaign-slug}-{icp-slug}.md`.
 2. Tell the founder, mode-specific:
-   - **Hypothesis:** *"objection-playbook saved in hypothesis mode. N predictions across M ICPs. Print the sheet, listen for these at the conference, capture verbatim what you actually hear. After the event, re-run /foundation with the new objections, then re-run /objection-playbook in evidence mode."*
+   - **Hypothesis:** *"objection-playbook saved in hypothesis mode. N predictions across M ICPs. Print the sheet, listen for these at the conference, capture verbatim what you hear. After the event, re-run /foundation with the new objections, then re-run /objection-playbook in evidence mode."*
    - **Evidence:** *"objection-playbook saved in evidence mode. N input objections, M on the sheet, K parked, P routed to positioning-tagline, Q routed to foundation. Honest limits on the sheet: R."*
 3. Pointer back: *"Re-run after each conference. New objections will surface. Capture verbatim, re-run /foundation, re-run this skill."*
 4. Status: DONE if all input objections processed. DONE_WITH_CONCERNS if multiple evidence_gaps remain. NEEDS_CONTEXT if foundation or positioning-tagline missing.
@@ -342,8 +344,8 @@ evidence_gap_summary:
 
 ## Edge cases
 
-- **Founder wants hypothesis mode despite having real objections in foundation:** allowed, but warn. Predicting while ignoring real data is wasteful. Recommend evidence mode first, hypothesis mode as a refinement for ICPs without coverage.
-- **Founder wants evidence mode without real objections:** can't run. Tell them: *"Foundation has zero real objections. Either re-run /foundation and dictate from past calls, or run hypothesis mode to predict. Your call."*
+- **Founder wants hypothesis mode despite having buyer-verified objections in foundation:** allowed, but warn. Predicting while ignoring buyer data is wasteful. Recommend evidence mode first, hypothesis mode as a refinement for ICPs without coverage.
+- **Founder wants evidence mode without buyer-verified objections:** can't run. Tell them: *"Foundation has zero buyer-verified objections. Either re-run /foundation and dictate from past calls, or run hypothesis mode to predict. Your call."*
 - **All objections route off the sheet (evidence mode):** the sheet is empty. That's a signal. Either positioning is broken across the board (everything went to positioning-tagline), or founder talked mostly to wrong-fit buyers (everything got parked), or every concern is a pattern (everything went to foundation). Tell the founder which pattern dominated and what to fix upstream.
 - **Founder wants to dismiss objections:** push back. Triage first. Acknowledge always comes first if it survives triage.
 - **Reframe drifts from positioning:** redirect. Reframe must anchor to positioning-tagline.md spine.

@@ -1,17 +1,19 @@
 ---
 name: positioning-tagline
-description: Produce positioning + tagline for biotech founders. Two paths — Path A (extract from real buyer language if foundation has interviews/quotes/sales) or Path C (produce hypothesis + conference test kit if pre-customer). Branched at top based on foundation.md customer_data_source.
+description: Produce positioning + tagline for biotech founders. Two paths — Path A (extract from captured buyer language if foundation has interviews/quotes/sales) or Path C (produce hypothesis + conference test kit if pre-customer). Branched at top based on foundation.md customer_data_source.
 version: 2.0
 ---
 
 # /positioning-tagline
+
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
 
 ## Mission
 
 `/positioning-tagline` is two skills sharing one name:
 
 - **Path A — Extraction.** When the founder has customer interviews, sales conversations, or organic user language captured in `foundation.md`, the skill extracts positioning from buyer words. April Dunford's method. The skill is an archaeologist.
-- **Path C — Hypothesis + conference test kit.** When the founder is pre-customer, the skill produces a testable hypothesis and equips them to capture real buyer reactions at a conference. The conference is the test bed.
+- **Path C — Hypothesis + conference test kit.** When the founder is pre-customer, the skill produces a testable hypothesis and equips them to capture buyer reactions at a conference. The conference is the test bed.
 
 Branch is detected at the top from `foundation.md`'s `customer_data_source` field. The user only sees the path they're in.
 
@@ -85,7 +87,7 @@ STOP. Wait for confirmation.
 ### Step A2 — Paste the raw material
 
 Voice prompt:
-> *"Paste your raw material verbatim. 5–10 snippets minimum: customer interview transcripts, emails, call notes, slack threads, anywhere a real buyer described what you do or what's broken. No summarizing — exact words. The more, the better."*
+> *"Paste your raw material verbatim. 5–10 snippets minimum: customer interview transcripts, emails, call notes, slack threads, anywhere a buyer described what you do or what's broken. No summarizing — exact words. The more, the better."*
 
 If founder paraphrases, push back: *"Verbatim. 'They said it's faster' is paraphrase. What did they literally type or say?"*
 
@@ -171,7 +173,7 @@ next_step: "Hand to Ivan for craft pass. Ship to /narrative + /one-pager + /deck
 [Founder's verbatim quotes preserved in prose]
 ```
 
-`craft_review_needed: low` because the words came from real buyers. Ivan's pass is for cadence, not substance.
+`craft_review_needed: low` because the words came from buyers themselves. Ivan's pass is for cadence, not substance.
 
 ---
 
@@ -180,7 +182,7 @@ next_step: "Hand to Ivan for craft pass. Ship to /narrative + /one-pager + /deck
 ### Step C1 — Frame the session
 
 Voice prompt:
-> *"You don't have customer data yet, and you have a test campaign coming (conference, warm-intro series, cold outreach push, whatever the testing window is). So we're producing two things: (1) a hypothesis tagline good enough to test, and (2) a kit you take into the conversations to capture real buyer reactions. After each conversation, you run /validation-debrief. Once enough have stacked up (5-8 is usually enough), you run /foundation refresh to aggregate verbatim and surface patterns. Then we re-run this skill in Path A mode. The conversations are the test, not a sales theater. Ready?"*
+> *"You don't have customer data yet, and you have a test campaign coming (conference, warm-intro series, cold outreach push, whatever the testing window is). So we're producing two things: (1) a hypothesis tagline good enough to test, and (2) a kit you take into the conversations to capture buyer reactions. After each conversation, you run /validation-debrief. Once enough have stacked up (5-8 is usually enough), you run /foundation refresh to aggregate verbatim and surface patterns. Then we re-run this skill in Path A mode. The conversations are the test, not a sales theater. Ready?"*
 
 STOP. Get explicit confirmation that the founder understands this is hypothesis-to-test, not finished positioning.
 
@@ -228,7 +230,7 @@ CONFIRMATION SIGNALS (3 phrases that mean it's working):
 DISCONFIRMATION SIGNALS (3 phrases that mean it's wrong):
   - "[example]" — means they don't have this pain
   - "[example]" — means they think you're a category they already use
-  - "[example]" — means the differentiator isn't real to them
+  - "[example]" — means the differentiator doesn't land for them
 ```
 
 **Capture template** (one-page, printable, fill-in-after-each-conversation):
@@ -333,7 +335,7 @@ next_step: "After each conversation, run /validation-debrief on the notes. Once 
 ## Edge cases
 
 - **Foundation.md missing:** stop. Tell founder to run /foundation first.
-- **Founder claims evidence_grounded but pastes founder-voice paraphrase, not buyer-voice verbatim:** push back, demand actual quotes. If they can't produce, downgrade to Path C with a flag.
+- **Founder claims evidence_grounded but pastes founder-voice paraphrase, not buyer-voice verbatim:** push back, demand verbatim quotes. If they can't produce, downgrade to Path C with a flag.
 - **Path A with weak data (1-2 sources):** capture what's there but supplement with hypothesis-style angles for thin areas. Mark as `customer_data_source: hybrid`. Treat closer to Path C.
 - **Path C founder wants to skip the test kit:** push back. The whole point is testing. Without the kit, hypothesis evaporates after the conference.
 - **Founder paraphrases buyer reactions instead of capturing verbatim:** the test data is worthless. Reject and ask for verbatim.

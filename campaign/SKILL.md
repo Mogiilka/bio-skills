@@ -6,6 +6,8 @@ version: 0.1
 
 # /campaign
 
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
+
 ## Mission
 
 `/campaign` is a router, not a generator. It captures campaign-specific context (a conference, an investor roadshow, a podcast tour, a cold outreach push) and tells the founder which downstream skills to run for THIS campaign — and which to skip.
@@ -423,7 +425,7 @@ Conditional rules the skill applies:
 
 **Objection-playbook:**
 - Run for priority ICP if pipeline includes booked meetings or warm intros.
-- Skip if cold-only outreach with no replies yet (no real objections to capture).
+- Skip if cold-only outreach with no replies yet (no buyer-verified objections to capture).
 - For hypothesis-test mode, run lighter version focused on capturing hesitation patterns.
 
 ### Routing recommendation display

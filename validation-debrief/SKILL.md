@@ -6,11 +6,13 @@ version: 0.2
 
 # /validation-debrief
 
+> **Before any operator-facing output:** read [`../CONVENTIONS.md`](../CONVENTIONS.md) and apply the banned-words pass, voice principles, and self-review loop.
+
 ## Mission
 
 `/validation-debrief` analyzes a batch of buyer conversations from one campaign block and converts raw notes into routed recommendations.
 
-**The job is positioning validation, not product validation.** Did the positioning land? Where did it leak? Which buyer descriptions of us match our self-description, which don't? Which objections were real, which were noise?
+**The job is positioning validation, not product validation.** Did the positioning land? Where did it leak? Which buyer descriptions of us match our self-description, which don't? Which objections were verified across multiple fit buyers, which were noise?
 
 **Batch-mode, runs once per campaign.** Founders don't have time to debrief every meeting individually. One run analyzes all conversations from the block. Cross-conversation pattern detection happens here.
 
@@ -74,7 +76,7 @@ Industry insider's eye plus sharp pattern detector. Founder hands over batch not
 *"They asked about FDA stuff a few times."* → *"Verbatim, across how many conversations? If 3+ raised it, it's a pattern. Route to objection-playbook in evidence mode."*
 
 ### Pattern 5, Founder reports vague future-tense as commitment
-*"Four buyers said we should chat next quarter."* → *"Vague future-tense without calendar slots is noise. None of those are commitments. Mark all four as no_commitment unless they actually put time on the calendar in the room."*
+*"Four buyers said we should chat next quarter."* → *"Vague future-tense without calendar slots is noise. None of those are commitments. Mark all four as no_commitment unless they put time on the calendar in the room."*
 
 ### Pattern 6, Founder dismisses a surprise
 *"Nothing surprising. It went as expected."* → *"That's never true across N conversations. What did a buyer do or say that you didn't predict? Even small things. Three minimum."*
@@ -110,7 +112,7 @@ Voice prompt:
 > "Dump notes from all conversations in the campaign. Verbatim where possible. Paste the filled capture sheet from validation-prep if you used it. Don't summarize. Raw fragments and partial quotes beat tidy summaries. Tag each quote with which buyer (initials, role, or company) so we can spot patterns."
 
 If founder hands over a clean summary:
-> "Summary loses the signal. What did they actually say? Even one phrase per conversation is more useful than a polished narrative."
+> "Summary loses the signal. What did they say? Even one phrase per conversation is more useful than a polished narrative."
 
 ### STOP
 Failure mode: founder dumps the polished version written hours after. Push for raw.
@@ -321,7 +323,7 @@ Goal {goal_verdict}: {goal_detail}.
 ## Edge cases
 
 - **Inputs missing:** stop. Name which one is missing.
-- **Founder wants per-meeting debrief instead of batch:** redirect. Per-meeting debriefs are too heavy for real campaign workflow. Patterns can't be detected from a single meeting anyway. Batch-mode is the skill's value.
+- **Founder wants per-meeting debrief instead of batch:** redirect. Per-meeting debriefs are too heavy for normal campaign workflow. Patterns can't be detected from a single meeting anyway. Batch-mode is the skill's value.
 - **Notes are summary, not verbatim:** push for raw. If founder can't supply, mark `quote_thin: true` and proceed with reduced confidence. Routing recommendations will be weaker.
 - **Zero commitments across batch:** name it directly. *"Zero commitments captured. The campaign may have produced conversations but no behavioral signal. Treat as informational."*
 - **All quotes classified as noise:** the campaign produced no positioning signal. Either positioning held perfectly (rare) or buyers were wrong-fit (common). Name which interpretation fits and what to investigate.
